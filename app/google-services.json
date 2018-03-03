@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "924142297721",
+    "firebase_url": "https://hundredthieves-11867.firebaseio.com",
+    "project_id": "hundredthieves-11867",
+    "storage_bucket": "hundredthieves-11867.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924142297721:android:125f026589054ca0",
+        "android_client_info": {
+          "package_name": "tdkdesigns.hundredthieves"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924142297721-j7o8qdnjajn13qm3ib5tufsq9lps06hd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLIh43HcHkYAj45AFWKuMfvOnQv5EQD_U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

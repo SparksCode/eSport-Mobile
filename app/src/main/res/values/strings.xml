@@ -10,4 +10,10 @@
     <string name="hundredthieves">100 Thieves</string>
     <string name="descriptionLogo">100 Thieves Logo</string>
     <string name="empty_fragment">Empty Fragment</string>
+    <string name="menuHome">Home</string>
+    <string name="menuSchedule">Schedule</string>
+    <string name="menuTeam">Team</string>
+    <string name="menuMedia">Media</string>
+    <string name="menuAbout">About</string>
+    <string name="menuContact">Contact</string>
 </resources>

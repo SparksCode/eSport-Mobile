@@ -8,4 +8,5 @@
     <string name="action_settings">Settings</string>
     <string name="hundredthieves">100 Thieves</string>
     <string name="descriptionLogo">100 Thieves Logo</string>
+    <string name="empty_fragment">Empty Fragment</string>
 </resources>

@@ -10,24 +10,25 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/panel_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/hundredthieves_avatar"
-        android:adjustViewBounds="true"/>
 
-    <TextView
-        android:id="@+id/panel_name"
-        android:text="@string/empty_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorWhite" />
+        <ImageView
+            android:id="@+id/panel_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hundredthieves"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/panel_name"
+            android:text="@string/empty_fragment"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 

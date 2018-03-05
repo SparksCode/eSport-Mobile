@@ -19,6 +19,10 @@
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Schedule"
+            android:label="@string/title_activity_schedule"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

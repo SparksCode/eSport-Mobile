@@ -1,6 +1,7 @@
 package tdkdesigns.hundredthieves;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -83,14 +84,18 @@ public class Home extends AppCompatActivity
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);
 
-                final Panel clickItem = model;
+                //final Panel clickItem = model;
 
                 viewHolder.setItemClickListener(new ItemClickListener(){
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Intent PanelAction = new Intent(Home.this, MainActivity.class);
-                        PanelAction.putExtra("PanelId",adapter.getRef(position).getKey());
-                        PanelAction.putExtra("PanelName", clickItem.getName());
+                        //Intent PanelAction = new Intent(Home.this, MainActivity.class);
+                        //PanelAction.putExtra("PanelId",adapter.getRef(position).getKey());
+                        //PanelAction.putExtra("PanelName", clickItem.getName());
+
+                        //TODO: Expand webBrowser intent for custom links (Firebase)
+                        Intent webBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.twitter.com"));
+                        startActivity(webBrowser);
                     }
                 });
             }
@@ -122,9 +127,11 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            //Intent home = new Intent(Home.this, Home.class);
+            //startActivity(home);
         } else if (id == R.id.nav_schedule) {
-
+            Intent schedule = new Intent(Home.this, Schedule.class);
+            startActivity(schedule);
         } else if (id == R.id.nav_team) {
 
         } else if (id == R.id.nav_media) {

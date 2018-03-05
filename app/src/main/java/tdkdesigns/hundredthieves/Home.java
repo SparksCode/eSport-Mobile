@@ -61,25 +61,24 @@ public class Home extends AppCompatActivity
 
         //Load Panels
         recycler_panel = findViewById(R.id.recycler_panel);
-        //recycler_panel.setHasFixedSize(true);
+        recycler_panel.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recycler_panel.setLayoutManager(layoutManager);
 
+        //Populate Link Panels
         loadPanels();
+
+        //Welcome Message
+        Toast.makeText(Home.this, "Welcome to the Den!", Toast.LENGTH_LONG).show();
     }
 
     private void loadPanels(){
-        Toast.makeText(Home.this, "Test!",
-                Toast.LENGTH_LONG).show();
         adapter = new FirebaseRecyclerAdapter<Panel, PanelViewHolder>(Panel.class,
                 R.layout.panel_list,
                 PanelViewHolder.class,
                 panel) {
             @Override
             protected void populateViewHolder(PanelViewHolder viewHolder, Panel model, int position) {
-
-                Toast.makeText(Home.this, "This is my Toast message!",
-                        Toast.LENGTH_LONG).show();
                 viewHolder.txtPanelName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);

@@ -1,6 +1,7 @@
 package tdkdesigns.hundredthieves;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -81,6 +82,9 @@ public class Schedule extends AppCompatActivity
             startActivity(roster);
         } else if (id == R.id.nav_media) {
 
+        } else if (id == R.id.nav_store) {
+            Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.100thieves.com/store/"));
+            startActivity(store);
         } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_contact) {

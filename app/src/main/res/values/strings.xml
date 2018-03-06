@@ -17,4 +17,6 @@
     <string name="menuAbout">About</string>
     <string name="menuContact">Contact</string>
     <string name="title_activity_schedule">Schedule</string>
+    <string name="title_activity_roster">Roster</string>
+    <string name="menuStore">Store</string>
 </resources>

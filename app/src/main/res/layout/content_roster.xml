@@ -9,4 +9,13 @@
     tools:showIn="@layout/app_bar_roster"
     android:background="@drawable/hundredthieves_wallpaper">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_team"
+        android:scrollbars="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:ignore="MissingConstraints" />
+
 </android.support.constraint.ConstraintLayout>

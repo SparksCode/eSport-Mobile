@@ -8,17 +8,17 @@ import android.widget.TextView;
 import tdkdesigns.hundredthieves.Interface.ItemClickListener;
 import tdkdesigns.hundredthieves.R;
 
-public class PanelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
-    public TextView txtPanelName;
+public class ScheduleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
+    public TextView txtScheduleName;
     public ImageView imageView;
 
     private ItemClickListener itemClickListener;
 
-    public PanelViewHolder(View itemView) {
+    public ScheduleViewHolder(View itemView) {
         super(itemView);
 
-        imageView = itemView.findViewById(R.id.panel_image);
-        txtPanelName = itemView.findViewById(R.id.panel_name);
+        imageView = itemView.findViewById(R.id.schedule_image);
+        txtScheduleName = itemView.findViewById(R.id.schedule_name);
 
         itemView.setOnClickListener(this);
     }

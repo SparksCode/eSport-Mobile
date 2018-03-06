@@ -9,18 +9,45 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
+
+import tdkdesigns.hundredthieves.Interface.ItemClickListener;
+import tdkdesigns.hundredthieves.Model.SchedulePanel;
+import tdkdesigns.hundredthieves.ViewHolder.ScheduleViewHolder;
 
 public class Schedule extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    FirebaseDatabase database;
+    DatabaseReference schedule;
+
+    RecyclerView recycler_schedule;
+    RecyclerView.LayoutManager layoutManager;
+
+    FirebaseRecyclerAdapter<SchedulePanel, ScheduleViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+
+        //Firebase
+        database = FirebaseDatabase.getInstance();
+        schedule = database.getReference("Schedule");
+
+        //Navigation
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("100 Thieves");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -31,6 +58,41 @@ public class Schedule extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Load Schedule
+        recycler_schedule = findViewById(R.id.recycler_schedule);
+        recycler_schedule.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recycler_schedule.setLayoutManager(layoutManager);
+
+        //Populate Schedule Panels
+        loadSchedules();
+    }
+
+    private void loadSchedules(){
+        adapter = new FirebaseRecyclerAdapter<SchedulePanel, ScheduleViewHolder>(SchedulePanel.class,
+                R.layout.schedule_list,
+                ScheduleViewHolder.class,
+                schedule) {
+            @Override
+            protected void populateViewHolder(ScheduleViewHolder viewHolder, SchedulePanel model, int position) {
+                viewHolder.txtScheduleName.setText(model.getName());
+                Picasso.with(getBaseContext()).load(model.getImage())
+                        .into(viewHolder.imageView);
+
+                //final Schedule clickItem = model;
+
+                viewHolder.setItemClickListener(new ItemClickListener(){
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+                        //TODO: Expand webBrowser intent for custom links (Firebase)
+                        Intent webBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.twitter.com"));
+                        startActivity(webBrowser);
+                    }
+                });
+            }
+        };
+        recycler_schedule.setAdapter(adapter);
     }
 
     @Override

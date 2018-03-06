@@ -1,14 +1,15 @@
 package tdkdesigns.hundredthieves.Model;
 
-public class Panel {
+import tdkdesigns.hundredthieves.Schedule;
 
+public class SchedulePanel {
     private String Name;
     private String Image;
 
-    public Panel() {
+    public SchedulePanel() {
     }
 
-    public Panel(String name, String image) {
+    public SchedulePanel(String name, String image) {
         Name = name;
         Image = image;
     }

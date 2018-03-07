@@ -1,12 +1,12 @@
 package tdkdesigns.hundredthieves.Model;
 
-public class Match {
+public class MatchPanel {
     private String Opponent, Date, Outcome;
 
-    public Match() {
+    public MatchPanel() {
     }
 
-    public Match(String opponent, String date, String outcome) {
+    public MatchPanel(String opponent, String date, String outcome) {
         Opponent = opponent;
         Date = date;
         Outcome = outcome;

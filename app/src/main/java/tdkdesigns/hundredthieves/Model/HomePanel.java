@@ -1,15 +1,15 @@
 package tdkdesigns.hundredthieves.Model;
 
-public class Panel {
+public class HomePanel {
 
     private String Name;
     private String Image;
     private String URL;
 
-    public Panel() {
+    public HomePanel() {
     }
 
-    public Panel(String name, String image) {
+    public HomePanel(String name, String image) {
         Name = name;
         Image = image;
     }

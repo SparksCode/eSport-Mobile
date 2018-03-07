@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import tdkdesigns.hundredthieves.Interface.ItemClickListener;
-import tdkdesigns.hundredthieves.Model.Panel;
+import tdkdesigns.hundredthieves.Model.HomePanel;
 import tdkdesigns.hundredthieves.ViewHolder.PanelViewHolder;
 
 public class Home extends AppCompatActivity
@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity
     RecyclerView recycler_panel;
     RecyclerView.LayoutManager layoutManager;
 
-    FirebaseRecyclerAdapter<Panel, PanelViewHolder> adapter;
+    FirebaseRecyclerAdapter<HomePanel, PanelViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class Home extends AppCompatActivity
 
         //Firebase
         database = FirebaseDatabase.getInstance();
-        panel = database.getReference("Panel");
+        panel = database.getReference("HomePanel");
 
         // Navigation
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -74,17 +74,17 @@ public class Home extends AppCompatActivity
     }
 
     private void loadPanels(){
-        adapter = new FirebaseRecyclerAdapter<Panel, PanelViewHolder>(Panel.class,
+        adapter = new FirebaseRecyclerAdapter<HomePanel, PanelViewHolder>(HomePanel.class,
                 R.layout.panel_list,
                 PanelViewHolder.class,
                 panel) {
             @Override
-            protected void populateViewHolder(PanelViewHolder viewHolder, final Panel model, int position) {
+            protected void populateViewHolder(PanelViewHolder viewHolder, final HomePanel model, int position) {
                 viewHolder.txtPanelName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);
 
-                //final Panel clickItem = model;
+                //final HomePanel clickItem = model;
                 final String URL = model.getURL();
 
                 viewHolder.setItemClickListener(new ItemClickListener(){

@@ -4,6 +4,7 @@ public class Panel {
 
     private String Name;
     private String Image;
+    private String URL;
 
     public Panel() {
     }
@@ -11,6 +12,14 @@ public class Panel {
     public Panel(String name, String image) {
         Name = name;
         Image = image;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public void setURL(String URL) {
+        this.URL = URL;
     }
 
     public String getName() {

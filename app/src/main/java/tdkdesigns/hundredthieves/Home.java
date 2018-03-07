@@ -85,16 +85,12 @@ public class Home extends AppCompatActivity
                         .into(viewHolder.imageView);
 
                 //final Panel clickItem = model;
+                final String URL = model.getURL();
 
                 viewHolder.setItemClickListener(new ItemClickListener(){
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        //Intent PanelAction = new Intent(Home.this, MainActivity.class);
-                        //PanelAction.putExtra("PanelId",adapter.getRef(position).getKey());
-                        //PanelAction.putExtra("PanelName", clickItem.getName());
-
-                        //TODO: Expand webBrowser intent for custom links (Firebase)
-                        Intent webBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.twitter.com"));
+                        Intent webBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
                         startActivity(webBrowser);
                     }
                 });

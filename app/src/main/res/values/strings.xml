@@ -19,4 +19,8 @@
     <string name="title_activity_schedule">Schedule</string>
     <string name="title_activity_roster">Roster</string>
     <string name="menuStore">Store</string>
+    <string name="title_activity_schedule_list">ScheduleList</string>
+    <string name="matchHome">100 Thieves VS</string>
+    <string name="matchOpponent">Opponent</string>
+    <string name="matchDate">Date</string>
 </resources>

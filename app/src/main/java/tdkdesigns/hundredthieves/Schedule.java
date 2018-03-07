@@ -75,19 +75,17 @@ public class Schedule extends AppCompatActivity
                 ScheduleViewHolder.class,
                 schedule) {
             @Override
-            protected void populateViewHolder(ScheduleViewHolder viewHolder, SchedulePanel model, int position) {
+            protected void populateViewHolder(ScheduleViewHolder viewHolder, final SchedulePanel model, int position) {
                 viewHolder.txtScheduleName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);
 
-                //final Schedule clickItem = model;
-
                 viewHolder.setItemClickListener(new ItemClickListener(){
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        //TODO: Expand webBrowser intent for custom links (Firebase)
-                        Intent webBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.twitter.com"));
-                        startActivity(webBrowser);
+                        Intent match = new Intent(Schedule.this, ScheduleList.class);
+                        match.putExtra("ScheduleId", adapter.getRef(position).getKey());
+                        startActivity(match);
                     }
                 });
             }

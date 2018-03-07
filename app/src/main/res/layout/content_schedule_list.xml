@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="tdkdesigns.hundredthieves.ScheduleList"
+    tools:showIn="@layout/app_bar_schedule_list">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/matchHome"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical|start"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:text="@string/matchHome"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/matchOpponent"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical|start"
+            android:textAllCaps="true"
+            android:text="@string/matchOpponent"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/matchDate"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical|start"
+            android:textAllCaps="true"
+            android:textStyle="italic"
+            android:text="@string/matchDate"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="16dp"
+        android:id="@+id/matchOutcome"
+        android:contentDescription="@null" />
+
+</android.support.constraint.ConstraintLayout>

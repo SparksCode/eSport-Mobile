@@ -79,7 +79,7 @@ public class Home extends AppCompatActivity
                 PanelViewHolder.class,
                 panel) {
             @Override
-            protected void populateViewHolder(PanelViewHolder viewHolder, Panel model, int position) {
+            protected void populateViewHolder(PanelViewHolder viewHolder, final Panel model, int position) {
                 viewHolder.txtPanelName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);

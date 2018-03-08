@@ -6,54 +6,16 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="tdkdesigns.hundredthieves.ScheduleList"
-    tools:showIn="@layout/app_bar_schedule_list">
-    <LinearLayout
+    tools:showIn="@layout/app_bar_schedule_list"
+    android:background="@drawable/hundredthieves_wallpaper">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_schedule"
+        android:scrollbars="vertical"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="9"
-        android:orientation="vertical"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/matchHome"
-            android:layout_marginStart="10dp"
-            android:gravity="center_vertical|start"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            android:text="@string/matchHome"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/matchOpponent"
-            android:layout_marginStart="10dp"
-            android:gravity="center_vertical|start"
-            android:textAllCaps="true"
-            android:text="@string/matchOpponent"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/matchDate"
-            android:layout_marginStart="10dp"
-            android:gravity="center_vertical|start"
-            android:textAllCaps="true"
-            android:textStyle="italic"
-            android:text="@string/matchDate"
-            />
-
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_gravity="center_vertical|end"
-        android:layout_marginEnd="16dp"
-        android:id="@+id/matchOutcome"
-        android:contentDescription="@null" />
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

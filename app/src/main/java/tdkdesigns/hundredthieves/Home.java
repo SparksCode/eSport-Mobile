@@ -44,7 +44,7 @@ public class Home extends AppCompatActivity
 
         //Firebase
         database = FirebaseDatabase.getInstance();
-        panel = database.getReference("HomePanel");
+        panel = database.getReference("Panel");
 
         // Navigation
         Toolbar toolbar = findViewById(R.id.toolbar);

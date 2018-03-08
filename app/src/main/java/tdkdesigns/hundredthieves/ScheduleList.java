@@ -2,6 +2,7 @@ package tdkdesigns.hundredthieves;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,16 +12,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import tdkdesigns.hundredthieves.Interface.ItemClickListener;
 import tdkdesigns.hundredthieves.Model.MatchPanel;
+import tdkdesigns.hundredthieves.ViewHolder.MatchViewHolder;
 
 public class ScheduleList extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,6 +42,8 @@ public class ScheduleList extends AppCompatActivity
     String scheduleId = "";
 
     MatchPanel currentMatch;
+
+    FirebaseRecyclerAdapter<MatchPanel, MatchViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +71,12 @@ public class ScheduleList extends AppCompatActivity
         txtDate = findViewById(R.id.matchDate);
         outcome = findViewById(R.id.matchOutcome);
 
+        recyclerView = findViewById(R.id.recycler_schedule);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
         //Process Intent Data
-        scheduleId = "999"; //TODO Remove Placeholder
         if(getIntent() != null){
             scheduleId = getIntent().getStringExtra("ScheduleId");
         }
@@ -74,22 +85,26 @@ public class ScheduleList extends AppCompatActivity
         }
     }
 
-    private void getMatchInfo(String scheduleId) {
-        matchList.child(scheduleId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                currentMatch = dataSnapshot.getValue(MatchPanel.class);
+    private void getMatchInfo(String scheduleId){
+    adapter = new FirebaseRecyclerAdapter<MatchPanel, MatchViewHolder>(MatchPanel.class,
+            R.layout.match_layout,
+            MatchViewHolder.class,
+            matchList.orderByChild("ScheduleID").equalTo(scheduleId)) {
+        @Override
+        protected void populateViewHolder(MatchViewHolder viewHolder, MatchPanel model, int position) {
+            viewHolder.txtMatchOpponent.setText(model.getOpponent());
+            viewHolder.txtMatchDate.setText(model.getDate());
 
-                txtOpponent.setText(currentMatch.getOpponent());
-                txtDate.setText(currentMatch.getDate());
+            viewHolder.setItemClickListener(new ItemClickListener() {
+                @Override
+                public void onClick(View view, int position, boolean isLongClick) {
 
-            }
+                }
+            });
+        }
+    };
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

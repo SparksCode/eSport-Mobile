@@ -9,6 +9,7 @@
     tools:showIn="@layout/app_bar_schedule_list"
     android:background="@drawable/hundredthieves_wallpaper">
 
+    <!--TODO: Add scoreboard (W-L-T)-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_schedule"
         android:scrollbars="vertical"

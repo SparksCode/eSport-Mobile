@@ -102,6 +102,8 @@ public class ScheduleList extends AppCompatActivity
         protected void populateViewHolder(MatchViewHolder viewHolder, final MatchPanel model, int position) {
             viewHolder.txtMatchOpponent.setText(model.getOpponent());
             viewHolder.txtMatchDate.setText(model.getDate());
+
+            //TODO: Add image outcome verification
             if(Objects.equals(model.getOutcome(), "Win")){
                 viewHolder.matchLayout.setBackgroundColor(Color.GREEN);
             }
@@ -115,6 +117,7 @@ public class ScheduleList extends AppCompatActivity
             viewHolder.setItemClickListener(new ItemClickListener() {
                 @Override
                 public void onClick(View view, int position, boolean isLongClick) {
+                    //TODO: Add match info/stats
                     Toast.makeText(ScheduleList.this, model.getOutcome(), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -158,6 +161,7 @@ public class ScheduleList extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
+    //TODO: Update Navigation (Media & About)
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();

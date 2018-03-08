@@ -80,14 +80,12 @@ public class Roster extends AppCompatActivity
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);
 
-                //final Team clickItem = model;
-
                 viewHolder.setItemClickListener(new ItemClickListener(){
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        //TODO: Expand webBrowser intent for custom links (Firebase)
-                        Intent webBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.twitter.com"));
-                        startActivity(webBrowser);
+                        //TODO: Send user to next activity (RosterList)
+                        Intent rosterList = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.twitter.com"));
+                        startActivity(rosterList);
                     }
                 });
             }
@@ -129,6 +127,7 @@ public class Roster extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
+    //TODO: Update Navigation (Media & About)
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();

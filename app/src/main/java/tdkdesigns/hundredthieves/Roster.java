@@ -83,7 +83,7 @@ public class Roster extends AppCompatActivity
                 viewHolder.setItemClickListener(new ItemClickListener(){
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        //TODO: Send user to next activity (RosterList)
+                        //TODO: Send user to next activity (PlayerList)
                         Intent rosterList = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.twitter.com"));
                         startActivity(rosterList);
                     }

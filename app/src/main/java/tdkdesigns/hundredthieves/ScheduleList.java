@@ -1,6 +1,7 @@
 package tdkdesigns.hundredthieves;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,10 +18,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 import tdkdesigns.hundredthieves.Interface.ItemClickListener;
 import tdkdesigns.hundredthieves.Model.MatchPanel;
@@ -95,14 +99,23 @@ public class ScheduleList extends AppCompatActivity
             MatchViewHolder.class,
             matchList.orderByChild("ScheduleID").equalTo(scheduleId)) {
         @Override
-        protected void populateViewHolder(MatchViewHolder viewHolder, MatchPanel model, int position) {
+        protected void populateViewHolder(MatchViewHolder viewHolder, final MatchPanel model, int position) {
             viewHolder.txtMatchOpponent.setText(model.getOpponent());
             viewHolder.txtMatchDate.setText(model.getDate());
+            if(Objects.equals(model.getOutcome(), "Win")){
+                viewHolder.matchLayout.setBackgroundColor(Color.GREEN);
+            }
+            else if (Objects.equals(model.getOutcome(), "Loss")){
+                viewHolder.matchLayout.setBackgroundColor(Color.RED);
+            }
+            else{
+                viewHolder.matchLayout.setBackgroundColor(Color.BLACK);
+            }
 
             viewHolder.setItemClickListener(new ItemClickListener() {
                 @Override
                 public void onClick(View view, int position, boolean isLongClick) {
-
+                    Toast.makeText(ScheduleList.this, model.getOutcome(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

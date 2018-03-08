@@ -41,6 +41,10 @@
         <activity
             android:name=".RosterList"
             android:label="@string/title_activity_roster_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PlayerDetail"
+            android:label="@string/title_activity_player_detail"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

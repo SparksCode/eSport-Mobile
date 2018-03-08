@@ -11,11 +11,6 @@ import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
-
-    //Display Splash Screen
-    private final int SPLASH_DISPLAY_LENGTH = 3000;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -29,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //After delay, start new activity
+        int SPLASH_DISPLAY_LENGTH = 3000;
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){

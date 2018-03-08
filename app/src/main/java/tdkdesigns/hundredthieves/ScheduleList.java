@@ -1,14 +1,16 @@
 package tdkdesigns.hundredthieves;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,11 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import tdkdesigns.hundredthieves.Interface.ItemClickListener;
 import tdkdesigns.hundredthieves.Model.MatchPanel;
@@ -32,6 +31,7 @@ public class ScheduleList extends AppCompatActivity
 
     FirebaseDatabase database;
     DatabaseReference matchList;
+    FirebaseRecyclerAdapter<MatchPanel, MatchViewHolder> adapter;
 
     TextView txtOpponent, txtDate;
     ImageView outcome;
@@ -40,18 +40,26 @@ public class ScheduleList extends AppCompatActivity
     RecyclerView.LayoutManager layoutManager;
 
     String scheduleId = "";
-
-    MatchPanel currentMatch;
-
-    FirebaseRecyclerAdapter<MatchPanel, MatchViewHolder> adapter;
+    String tournamentName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_list);
 
+        //Process Intent Data
+        if(getIntent() != null){
+            scheduleId = getIntent().getStringExtra("ScheduleId");
+            tournamentName = getIntent().getStringExtra("TournamentName");
+        }
+
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("2");
+        if(!tournamentName.isEmpty()) {
+            toolbar.setTitle(tournamentName);
+        }
+        else{
+            toolbar.setTitle("Tournament Matches");
+        }
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -76,10 +84,6 @@ public class ScheduleList extends AppCompatActivity
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        //Process Intent Data
-        if(getIntent() != null){
-            scheduleId = getIntent().getStringExtra("ScheduleId");
-        }
         if(!scheduleId.isEmpty()){
             getMatchInfo(scheduleId);
         }
@@ -145,18 +149,25 @@ public class ScheduleList extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_home) {
+            Intent home = new Intent(ScheduleList.this, Home.class);
+            startActivity(home);
+        } else if (id == R.id.nav_schedule) {
+            Intent schedule = new Intent(ScheduleList.this, Schedule.class);
+            startActivity(schedule);
+        } else if (id == R.id.nav_team) {
+            Intent roster = new Intent(ScheduleList.this, Roster.class);
+            startActivity(roster);
+        } else if (id == R.id.nav_media) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_store) {
+            Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.100thieves.com/store/"));
+            startActivity(store);
+        } else if (id == R.id.nav_about) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_contact) {
+            Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.100thieves.com/contact-1/"));
+            startActivity(store);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

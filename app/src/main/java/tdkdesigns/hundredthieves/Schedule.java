@@ -75,7 +75,7 @@ public class Schedule extends AppCompatActivity
                 ScheduleViewHolder.class,
                 schedule) {
             @Override
-            protected void populateViewHolder(ScheduleViewHolder viewHolder, final SchedulePanel model, int position) {
+            protected void populateViewHolder(final ScheduleViewHolder viewHolder, final SchedulePanel model, int position) {
                 viewHolder.txtScheduleName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);
@@ -85,6 +85,7 @@ public class Schedule extends AppCompatActivity
                     public void onClick(View view, int position, boolean isLongClick) {
                         Intent match = new Intent(Schedule.this, ScheduleList.class);
                         match.putExtra("ScheduleId", adapter.getRef(position).getKey());
+                        match.putExtra("TournamentName", viewHolder.txtScheduleName.getText());
                         startActivity(match);
                     }
                 });
@@ -148,7 +149,8 @@ public class Schedule extends AppCompatActivity
         } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_contact) {
-
+            Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.100thieves.com/contact-1/"));
+            startActivity(store);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

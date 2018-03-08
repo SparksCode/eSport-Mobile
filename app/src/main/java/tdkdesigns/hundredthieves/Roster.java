@@ -150,7 +150,8 @@ public class Roster extends AppCompatActivity
         } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_contact) {
-
+            Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.100thieves.com/contact-1/"));
+            startActivity(store);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

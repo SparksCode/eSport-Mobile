@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="tdkdesigns.hundredthieves.PlayerList"
-    tools:showIn="@layout/app_bar_roster_list">
+    tools:showIn="@layout/app_bar_player_list">
+
+    <android.support.v7.widget.RecyclerView
+    android:id="@+id/recycler_player"
+    android:scrollbars="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp"
+    tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

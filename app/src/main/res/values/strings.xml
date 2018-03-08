@@ -24,4 +24,5 @@
     <string name="matchOpponent">Opponent</string>
     <string name="matchDate">Date</string>
     <string name="title_activity_team_schedule_list">TeamScheduleList</string>
+    <string name="title_activity_roster_list">RosterList</string>
 </resources>

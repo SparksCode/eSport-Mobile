@@ -33,6 +33,10 @@
         <activity
             android:name=".ScheduleList"
             android:label="@string/title_activity_schedule_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TeamScheduleList"
+            android:label="@string/title_activity_team_schedule_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

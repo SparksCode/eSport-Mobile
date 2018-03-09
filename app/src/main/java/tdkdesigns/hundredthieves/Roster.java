@@ -80,12 +80,15 @@ public class Roster extends AppCompatActivity
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);
 
+                final TeamPanel roster = model;
+
                 viewHolder.setItemClickListener(new ItemClickListener(){
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        //TODO: Send user to next activity (PlayerList)
-                        Intent rosterList = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.twitter.com"));
-                        startActivity(rosterList);
+                        Intent playerList = new Intent(Roster.this, PlayerList.class);
+                        playerList.putExtra("TeamId", adapter.getRef(position).getKey());
+                        playerList.putExtra("TeamName", roster.getName());
+                        startActivity(playerList);
                     }
                 });
             }

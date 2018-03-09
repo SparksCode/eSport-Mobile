@@ -66,7 +66,7 @@ public class PlayerList extends AppCompatActivity
            teamId = getIntent().getStringExtra("TeamId");
         }
         if(teamId != null && !teamId.isEmpty()){
-            String teamName = getIntent().getStringExtra("PlayerName");
+            String teamName = getIntent().getStringExtra("TeamName");
             toolbar.setTitle(teamName);
             loadPlayerList(teamId);
         }

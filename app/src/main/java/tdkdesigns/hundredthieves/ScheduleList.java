@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amulyakhare.textdrawable.TextDrawable;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -39,6 +40,7 @@ public class ScheduleList extends AppCompatActivity
 
     TextView txtOpponent, txtDate;
     ImageView outcome;
+    TextDrawable drawable;
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -105,15 +107,31 @@ public class ScheduleList extends AppCompatActivity
 
             //TODO: Add image outcome verification
             if(Objects.equals(model.getOutcome(), "Win")){
-                viewHolder.matchLayout.setBackgroundColor(Color.GREEN);
+                drawable = TextDrawable.builder()
+                        .beginConfig()
+                        .bold()
+                        .textColor(Color.BLACK)
+                        .endConfig()
+                        .buildRoundRect("W", Color.GREEN, 50);
             }
             else if (Objects.equals(model.getOutcome(), "Loss")){
-                viewHolder.matchLayout.setBackgroundColor(Color.RED);
+                drawable = TextDrawable.builder()
+                        .beginConfig()
+                        .bold()
+                        .textColor(Color.BLACK)
+                        .endConfig()
+                        .buildRoundRect("L", Color.RED,50);
             }
-            else{
-                viewHolder.matchLayout.setBackgroundColor(Color.BLACK);
+            else {
+                drawable = TextDrawable.builder()
+                        .beginConfig()
+                        .bold()
+                        .textColor(Color.BLACK)
+                        .endConfig()
+                        .buildRoundRect("TBD", Color.RED, 50);
             }
 
+            viewHolder.imageOutcome.setImageDrawable(drawable);
             viewHolder.setItemClickListener(new ItemClickListener() {
                 @Override
                 public void onClick(View view, int position, boolean isLongClick) {
@@ -149,7 +167,7 @@ public class ScheduleList extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        //int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
     }

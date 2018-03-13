@@ -27,4 +27,6 @@
     <string name="title_activity_roster_list">RosterList</string>
     <string name="title_activity_player_detail">PlayerDetail</string>
     <string name="playerName">Player Name</string>
+    <string name="bio">Player Bio</string>
+    <string name="role">Player Role</string>
 </resources>

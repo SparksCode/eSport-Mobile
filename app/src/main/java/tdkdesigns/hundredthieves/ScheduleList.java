@@ -188,8 +188,6 @@ public class ScheduleList extends AppCompatActivity
         } else if (id == R.id.nav_team) {
             Intent roster = new Intent(ScheduleList.this, Roster.class);
             startActivity(roster);
-        } else if (id == R.id.nav_media) {
-
         } else if (id == R.id.nav_store) {
             Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.100thieves.com/store/"));
             startActivity(store);

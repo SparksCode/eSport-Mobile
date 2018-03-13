@@ -116,7 +116,7 @@ public class Schedule extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        //int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
     }
@@ -137,8 +137,6 @@ public class Schedule extends AppCompatActivity
         } else if (id == R.id.nav_team) {
             Intent roster = new Intent(Schedule.this, Roster.class);
             startActivity(roster);
-        } else if (id == R.id.nav_media) {
-
         } else if (id == R.id.nav_store) {
             Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.100thieves.com/store/"));
             startActivity(store);

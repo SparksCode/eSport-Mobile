@@ -132,8 +132,6 @@ public class Home extends AppCompatActivity
         } else if (id == R.id.nav_team) {
             Intent roster = new Intent(Home.this, Roster.class);
             startActivity(roster);
-        } else if (id == R.id.nav_media) {
-
         } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_store) {

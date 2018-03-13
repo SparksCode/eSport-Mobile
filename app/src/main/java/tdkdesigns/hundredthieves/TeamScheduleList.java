@@ -1,5 +1,7 @@
 package tdkdesigns.hundredthieves;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -65,7 +67,7 @@ public class TeamScheduleList extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        //int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
     }
@@ -76,18 +78,23 @@ public class TeamScheduleList extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_home) {
+            Intent home = new Intent(TeamScheduleList.this, Home.class);
+            startActivity(home);
+        } else if (id == R.id.nav_schedule) {
+            Intent schedule = new Intent(TeamScheduleList.this, Schedule.class);
+            startActivity(schedule);
+        } else if (id == R.id.nav_team) {
+            Intent roster = new Intent(TeamScheduleList.this, Roster.class);
+            startActivity(roster);
+        } else if (id == R.id.nav_about) {
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_store) {
+            Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.100thieves.com/store/"));
+            startActivity(store);
+        } else if (id == R.id.nav_contact) {
+            Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.100thieves.com/contact-1/"));
+            startActivity(store);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

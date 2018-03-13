@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="tdkdesigns.hundredthieves.ScheduleList"
-    tools:showIn="@layout/app_bar_schedule_list">
+    tools:showIn="@layout/app_bar_schedule_list"
+    android:background="@drawable/hundredthieves_wallpaper">
 
     <!--TODO: Add scoreboard (W-L-T)-->
     <android.support.v7.widget.RecyclerView

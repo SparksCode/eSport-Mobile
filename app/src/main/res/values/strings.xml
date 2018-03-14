@@ -29,4 +29,5 @@
     <string name="playerName">Player Name</string>
     <string name="bio">Player Bio</string>
     <string name="role">Player Role</string>
+    <string name="title_activity_social_links">SocialLinks</string>
 </resources>

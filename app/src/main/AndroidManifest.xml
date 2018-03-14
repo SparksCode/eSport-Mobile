@@ -45,6 +45,10 @@
         <activity
             android:name=".PlayerDetail"
             android:label="@string/title_activity_player_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SocialLinks"
+            android:label="@string/title_activity_social_links"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
